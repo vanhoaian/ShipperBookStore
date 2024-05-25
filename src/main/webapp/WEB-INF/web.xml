@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>SimpleBookStore</display-name>
+	<welcome-file-list>
+		<welcome-file>clientHome</welcome-file>
+
+	</welcome-file-list>
+
+	<context-param>
+		<param-name>jdbcURL</param-name>
+		<param-value>jdbc:mysql://localhost:3306/shipper_bookstore</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcUsername</param-name>
+		<param-value>root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>jdbcPassword</param-name>
+		<param-value>1234</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>vnua.fita.bookstore.servlet.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>adminServlet</servlet-name>
+		<servlet-class>vnua.fita.bookstore.servlet.AdminHomeServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>deleteBook</servlet-name>
+		<servlet-class>vnua.fita.bookstore.servlet.DeleteBookServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>editBook</servlet-name>
+		<servlet-class>vnua.fita.bookstore.servlet.EditBookServlet</servlet-class>
+	</servlet>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<servlet>
+		<servlet-name>ajaxServlet</servlet-name>
+		<servlet-class>vnua.fita.bookstore.ajaxServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>vnpayQuery</servlet-name>
+		<servlet-class>vnua.fita.bookstore..vnpayQuery</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>vnpayRefund</servlet-name>
+		<servlet-class>vnua.fita.bookstore.vnpayRefund</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ajaxServlet</servlet-name>
+		<url-pattern>/vnpayajax/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>vnpayQuery</servlet-name>
+		<url-pattern>/vnpayquery/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>vnpayRefund</servlet-name>
+		<url-pattern>/vnpayrefund/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>adminServlet</servlet-name>
+		<url-pattern>/adminHome</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>deleteBook</servlet-name>
+		<url-pattern>/deleteBook</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>editBook</servlet-name>
+		<url-pattern>/editBook</url-pattern>
+	</servlet-mapping>
+</web-app>
